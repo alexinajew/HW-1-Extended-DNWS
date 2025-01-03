@@ -23,10 +23,10 @@
             "Postprocessing" :"false" 
         },
         {
-            "Path" : "clientinfo",
-            "Class" : "DNWS.ClientInfoPlugin",
-            "Preprocessing" : "false",
-            "Postprocessing" :"false"
-        }
+            "Path": "clientinfo",
+            "Class": "DNWS.ClientInfoPlugin",
+            "Preprocessing": "false",
+            "Postprocessing": "false"
+        }        
     ]
 }

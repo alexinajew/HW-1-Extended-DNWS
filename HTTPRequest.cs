@@ -9,8 +9,8 @@ namespace DNWS
   {
     protected String _url;
     protected String _filename;
-    protected static Dictionary<String, String> _propertyListDictionary = null;
-    protected static Dictionary<String, String> _requestListDictionary = null;
+    protected Dictionary<String, String> _propertyListDictionary = null;
+    protected Dictionary<String, String> _requestListDictionary = null;
 
     protected String _body;
 
