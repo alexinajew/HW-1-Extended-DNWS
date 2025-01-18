@@ -53,21 +53,30 @@ namespace DNWS
                             <style>
                                 body {
                                     font-family: 'Verdana', sans-serif;
-                                    background-color: #D9DFC6;
+                                    background-color: #F5F7FE;
                                     color: #333;
+                                    margin: 0;
                                     padding: 20px;
+                                    line-height: 1.6;
                                 }
                                 h1 {
-                                    color: #131010;
+                                    color: #2C3E50;
                                     font-family: 'Courier New', monospace;
+                                    text-align: center;
+                                    margin-bottom: 20px;
                                 }
                                 pre {
-                                    background-color: #FFFAEC;
+                                    background-color: #FFFFFF;
                                     padding: 15px;
                                     border-radius: 5px;
-                                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
                                     font-size: 14px;
-                                    font-family: 'Georgia', serif;
+                                    font-family: 'Courier New', monospace;
+                                    line-height: 1.6;
+                                    overflow: auto;
+                                }
+                                strong {
+                                    color: #33495E;
                                 }
                             </style>
                         </head>
@@ -79,7 +88,7 @@ namespace DNWS
                                 <strong>Browser Information:</strong> " + browerinfo + @"<br/>
                                 <strong>Accept Language:</strong> " + accpectLanguage + @"<br/>
                                 <strong>Accept Encoding:</strong> " + accpectEncoding + @"<br/>
-                            <pre>
+                            </pre>
                         </body>
                         </html>
                     ");

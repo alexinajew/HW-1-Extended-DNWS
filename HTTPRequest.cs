@@ -82,16 +82,30 @@ namespace DNWS
 
       if(lines.Length == 1) return;
 
-      for(int i = 1; i != lines.Length; i++) {
-        String[] pair = Regex.Split(lines[i], ": "); //FIXME
+      for(int i = 1; i < lines.Length; i++) {
+        String[] pair = lines[i].Split(new[] {": "}, StringSplitOptions.None);
+
         if(pair.Length == 0) continue;
-        if(pair.Length == 1) { // handle post body
-          if(pair[0].Length > 1) { //FIXME, this is a quick hack
-            Dictionary<String, String> _bodys = pair[0].Split('&').Select(x => x.Split('=')).ToDictionary(x => x[0].ToLower(), x => x[1]);
-            _requestListDictionary = _requestListDictionary.Concat(_bodys).ToDictionary(x=>x.Key, x=>x.Value);
+
+        if(pair.Length == 1){
+          if(pair[0].Length > 1){
+            try{
+              Dictionary<String, String> bodyPraams = pair[0]
+                .Split('&')
+                .Select(x => x.Split('='))
+                .Where(x => x.Length == 2)
+                .ToDictionary(x => x[0].ToLower(), x => x[1]);
+              
+              foreach(var kvp in bodyPraams){
+                _requestListDictionary[kvp.Key] = kvp.Value;
+              }
+            }catch{
+              _status = 400;
+              return;
+            }
           }
-        } else { // Length == 2, GET url request
-          addProperty(pair[0], pair[1]);
+        }else{
+          addProperty(pair[0].Trim(), pair[1].Trim());
         }
       }
     }
